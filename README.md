@@ -11,7 +11,7 @@ This module only contains one function.
 
     random_execute(functions, ratios[Optional], args[Optional])
 
-Functions and ratios **must be iterable**,** and it is **recommended to use tuple**.
+Functions and ratios **must be iterable**, and it is **recommended to use tuple**.
 Args **must be iterable**, and it is **recommended to use list**.
 The objects inside the Args **must be iterable**, and it is **recommended to use list or dictionary**.
 
@@ -28,7 +28,7 @@ If the length of the args equals to the that of the functions, The object inside
 If the length of the args equals to 1, the **same arguments will be used for all functions**.
 
 >**Caution**<br>
->String is also iterable, the code below splits the string into characters and passes them to the function.
+>**String is also iterable**, the code below splits the string into characters and passes them to the function.
 >```python
 >random_execute((a,b), args=["Hello, World!"])
 >```
