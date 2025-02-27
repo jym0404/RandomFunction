@@ -35,7 +35,7 @@ If the length of the args equals to 1, the **same arguments will be used for all
 
 ## Example
 
-The codes below execute a and b with a 25% probability, and c with a 50% probability.
+The codes below execute a and c each with a 25% probability, and b with a 50% probability.
 ```python
 random_execute((a, b, c), (1, 2, 1))
 
