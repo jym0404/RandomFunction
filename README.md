@@ -9,29 +9,47 @@ So there are ways to import it by **copying that single file**, or by **cloning 
 ## Usage
 This module only contains one function.
 
-    random_execute(functions, ratios[Optional])
+    random_execute(functions, ratios[Optional], args[Optional])
 
-Functions and ratios **must be iterable**,** and it is **recommended to use tuples**.
+Functions and ratios **must be iterable**,** and it is **recommended to use tuple**.
+Args **must be iterable**, and it is **recommended to use list**.
+The objects inside the Args **must be iterable**, and it is **recommended to use list or dictionary**.
 
-Functions must contain **the names of the function**, and the functions **must not receive any parameters**.
-
-If any **function takes parameters**, this will **cause an error**. However, if default values ​​are defined for all parameters of the all functions, it will be operated with those default values.
+Functions must contain **the names of the function**.
 
 Ratios must be composed of **numeric objects**, and it is **recommended that they be composed of int**.
+
+Args must contain **The iterable objects that contain arguments of the functions**.
+
+The length of the args **must be equal to the that of the functions or 1**
+
+If the length of the args equals to the that of the functions, The object inside args will be selected **according to its index and passed to the function**.
+
+If the length of the args equals to 1, the **same arguments will be used for all functions**.
+
+>**Caution**<br>
+>String is also iterable, the code below splits the string into characters and passes them to the function.
+>```python
+>random_execute((a,b), args=["Hello, World!"])
+>```
 
 ## Example
 
 The codes below execute a and b with a 25% probability, and c with a 50% probability.
+```python
+random_execute((a, b, c), (1, 2, 1))
 
-    random_execute((a, b, c), (1, 2, 1))
+random_execute((a, b, c), (25, 50, 25))
 
-    random_execute((a, b, c), (25, 50, 25))
-
-    random_execute((a, b, c), ratios=(25, 50, 25))
-
+random_execute((a, b, c), ratios=(25, 50, 25))
+```
 If the function is executed without ratios as shown below, a, b, and c are executed with equal probability.
-
-    random_execute((a,b,c))
-
+```python
+random_execute((a, b, c))
+```
+The code below executes a and b with a 50% probability, passing `"a"` to a and `"b1","b2"` to b.
+```python
+random_execute((a, b), (1, 1), [["a"], ["b1", "b2"]])
+```
 ## License
 This repository is licensed under the [MIT license](https://github.com/jym0404/RandomFunction/blob/main/LICENSE).
